@@ -1,22 +1,22 @@
-// 依赖缺省源中的 vi、rep、per；按无符号字节排序，支持空串。
+// 依赖缺省源中的 vi、rep、per；按 ASCII（0..127）排序，支持空串。
 // sa[r] 为排名 r 的后缀起点，rk[i] 为后缀 i 的排名，均从 0 开始。
 // 返回 {rk, sa}；倍增构建 O(n log n) 时间、O(n) 空间。
 // 长度须能用 int 表示；按字节处理，不进行 Unicode 字符解码。
 pair<vi, vi> SA(const string &s){
-	int n = (int)s.size();
+	int n = int(size(s));
 	vi rk(n), sa(n);
 	if(!n){
 		return {};
 	}
-	vi cnt(max(n, 256)), tmp(n), nrk(n);
-	for(unsigned char c:s){
+	vi cnt(max(n, 128)), tmp(n), nrk(n);
+	for(char c:s){
 		cnt[c]++;
 	}
-	rep(i, 1, 255){
+	rep(i, 1, 127){
 		cnt[i] += cnt[i - 1];
 	}
 	per(i, n - 1, 0){
-		sa[--cnt[(unsigned char)s[i]]] = i;
+		sa[--cnt[s[i]]] = i;
 	}
 	int ccnt = 0;
 	rep(i, 0, n - 1){
@@ -69,7 +69,7 @@ pair<vi, vi> SA(const string &s){
 // sa、rk 须为同一字符串的 SA 结果；O(n) 时间、O(n) 返回空间。
 // height[0] = 0，height[r] = lcp(s[sa[r - 1]..], s[sa[r]..])。
 vi get_height(const string &s, const vi &sa, const vi &rk){
-	int n = (int)s.size();
+	int n = int(size(s));
 	vi height(n);
 	int k = 0;
 	rep(i, 0, n - 1){

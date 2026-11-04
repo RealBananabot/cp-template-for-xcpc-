@@ -18,7 +18,7 @@ args = parser.parse_args()
 tests = Path(__file__).resolve().parent
 source = (args.source or tests.parent).resolve()
 compiler = shlex.split(os.environ.get('CXX', 'g++'))
-flags = ['-std=gnu++20', '-O2', '-Wall', '-Wextra', '-I', str(source)]
+flags = ['-std=gnu++20', '-O2', '-Wall', '-Wextra', '-Wconversion', '-Werror', '-I', str(source)]
 if args.sanitize:
     flags[1] = '-O1'
     flags += ['-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
@@ -35,7 +35,7 @@ if main is None:
     raise SystemExit('cannot locate main in ' + str(prelude_path))
 prelude = prelude[:main.start()]
 common = ['gsam.cpp', 'ac.cpp', 'pam.cpp', 'sa.cpp', 'lyndon.cpp', 'kmp.cpp',
-          'z.cpp', 'manacher.cpp', 'min_rotation.cpp', 'lcp_hash.cpp', 'lcp_sa.cpp', 'runs.cpp']
+          'z.cpp', 'manacher.cpp', 'min_rotation.cpp', 'lcp_sa.cpp', 'runs.cpp']
 body = r'''
 int main(){
     assert((kmp("aba") == vi{-1, -1, 0}));
@@ -48,9 +48,9 @@ int main(){
     auto [rk, sa] = SA(s);
     assert((sa == vi{2, 0, 1}));
     assert((get_height(s, sa, rk) == vi{0, 1, 0}));
-    hash_lcp h(s); sa_lcp t(s);
-    assert(h.lcp(0, 2) == 1 && t.lcp(0, 2) == 1);
-    assert(h.lcs(0, 2) == 1 && t.lcs(0, 2) == 1);
+    sa_lcp t(s);
+    assert(t.lcp(0, 2) == 1);
+    assert(t.lcs(0, 2) == 1);
     SAM sam(4);
     for(const string &a:vector<string>{"ab", "ba"}){
         int u = 1;
@@ -64,7 +64,6 @@ int main(){
     assert(pam.dep[u] == 2);
     vector<tuple<int, int, int>> expected{{0, 3, 1}};
     assert(get_runs("aaaa") == expected);
-    assert(get_runs<hash_lcp>("aaaa") == expected);
     assert(get_runs<sa_lcp>("aaaa") == expected);
     cout << "current s.cpp integration passed\n";
 }
@@ -85,12 +84,16 @@ with tempfile.TemporaryDirectory(prefix='string-check-') as tmp:
         binary = work / path.stem
         result = subprocess.run(compiler + flags + [str(path), '-o', str(binary)], text=True, capture_output=True)
         if result.returncode:
-            raise RuntimeError(path.name + '\n' + result.stdout + result.stderr)
+            return path.stem, None, path.name + '\n' + result.stdout + result.stderr
         if result.stderr:
             print(result.stderr, flush=True)
-        return path.stem, binary
+        return path.stem, binary, ''
     with ThreadPoolExecutor(max_workers=3) as pool:
-        binaries = list(pool.map(compile_unit, units))
+        compiled = list(pool.map(compile_unit, units))
+    errors = [error for _, _, error in compiled if error]
+    if errors:
+        raise SystemExit('\n'.join(errors))
+    binaries = [(name, binary) for name, binary, _ in compiled]
     print('compiled', len(binaries), 'test and integration units', flush=True)
     for name, binary in binaries:
         print(name + ':', flush=True)

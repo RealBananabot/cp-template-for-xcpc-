@@ -10,7 +10,7 @@ int cases = 0;
 array<i64, 4> branches{};
 void check(const vector<string> &a){
 	int n = 0;
-	for(const auto &x:a) n += (int)x.size();
+	for(const auto &x:a) n += int(size(x));
 	SAM t(n);
 	for(const auto &x:a){
 		int p = 1;
@@ -26,8 +26,8 @@ void check(const vector<string> &a){
 		}
 	}
 	map<string, vector<pair<int, int>>> occ;
-	rep(k, 0, (int)a.size() - 1){
-		rep(r, 0, (int)a[k].size() - 1){
+	rep(k, 0, int(size(a)) - 1){
+		rep(r, 0, int(size(a[k])) - 1){
 			rep(l, 0, r) occ[a[k].substr(l, r - l + 1)].emplace_back(k, r);
 		}
 	}
@@ -44,11 +44,11 @@ void check(const vector<string> &a){
 		assert(endpos[p] == pos);
 		auto [it, added] = cls.emplace(pos, p);
 		assert(added || it->second == p);
-		low[p] = min(low[p], (int)x.size());
-		high[p] = max(high[p], (int)x.size());
+		low[p] = min(low[p], int(size(x)));
+		high[p] = max(high[p], int(size(x)));
 	}
-	assert(t.solve().first == (i64)occ.size());
-	assert(t.tot == (int)cls.size() + 1);
+	assert(t.solve().first == i64(size(occ)));
+	assert(t.tot == int(size(cls)) + 1);
 	assert(t.tot <= 2 * n + 1);
 	rep(i, 2, t.tot){
 		assert(!endpos[i].empty());
@@ -69,7 +69,7 @@ void check(const vector<string> &a){
 			}
 		}
 	}
-	assert(paths[1] == (i64)occ.size());
+	assert(paths[1] == i64(size(occ)));
 	cases++;
 }
 
@@ -106,7 +106,7 @@ int main(int argc, char **){
 	rep(len, 0, 4){
 		rep(mask, 0, (1 << len) - 1){
 			string x(len, 'a');
-			rep(i, 0, len - 1) x[i] += (mask >> i) & 1;
+			rep(i, 0, len - 1) x[i] = char('a' + ((mask >> i) & 1));
 			pool.emplace_back(x);
 		}
 	}
@@ -114,15 +114,15 @@ int main(int argc, char **){
 	mt19937 rng(6139);
 	rep(tc, 1, 20000){
 		vector<string> a;
-		int cnt = (int)(rng() % 8) + 1;
+		int cnt = int(rng() % 8) + 1;
 		rep(i, 1, cnt){
 			string x;
-			if(a.size() && rng() % 3 == 0){
-				x = a[rng() % a.size()];
-				x.resize(rng() % (x.size() + 1));
+			if(size(a) && rng() % 3 == 0){
+				x = a[rng() % size(a)];
+				x.resize(rng() % (size(x) + 1));
 			} else{
-				int len = (int)(rng() % 12);
-				int sigma = (int)(rng() % 5) + 1;
+				int len = int(rng() % 12);
+				int sigma = int(rng() % 5) + 1;
 				rep(j, 1, len) x += char('a' + rng() % sigma);
 			}
 			a.emplace_back(x);

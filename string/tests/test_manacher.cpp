@@ -8,17 +8,17 @@ int main(int argc, char **){
 		const int n = 11000000;
 		string s(n, 'a');
 		vi d = manacher(s);
-		assert((int)d.size() == 2 * n + 1);
+		assert(int(size(d)) == 2 * n + 1);
 		rep(i, 0, 2 * n) assert(d[i] == min(i, 2 * n - i));
 		cout << "passed original length 11000000 boundary\n";
 		return 0;
 	}
 	int cases = 0;
 	auto check = [&](const string &s){
-		int m = (int)s.size(), n = 2 * m + 1;
-		// Oracle uses -1 separators and unsigned byte values 0..255.
+		int m = int(size(s)), n = 2 * m + 1;
+		// Oracle uses -1 separators and ASCII values 0..127.
 		vi t(n, -1), expected(n);
-		rep(i, 0, m - 1) t[2 * i + 1] = (unsigned char)s[i];
+		rep(i, 0, m - 1) t[2 * i + 1] = s[i];
 		rep(i, 0, n - 1){
 			while(expected[i] < i && expected[i] < n - i - 1 && t[i - expected[i] - 1] == t[i + expected[i] + 1]) expected[i]++;
 		}
@@ -50,7 +50,7 @@ int main(int argc, char **){
 	}
 	mt19937 rng(3805);
 	rep(tc, 1, 5000){
-		int n = (int)(rng() % 65), sigma = (int)(rng() % 256) + 1;
+		int n = int(rng() % 65), sigma = int(rng() % 128) + 1;
 		string s(n, 0);
 		for(char &c:s) c = char(rng() % sigma);
 		check(s);

@@ -1,9 +1,9 @@
 // 接在缺省源与 sa.cpp 后使用；与 runs_hash.cpp 二选一。
 // 返回排序、去重后的 {l, r, p}，0 下标闭区间，p 为最小周期。
-// 按无符号字节比较，支持空串；长度须能用 int 表示。
+// 按 ASCII（0..127）比较，支持空串；长度须能用 int 表示。
 // O(n log n) 时间、空间；两份 ST 在 n = 10^6 时合计约 145 MiB。
 vector<tuple<int, int, int>> get_runs(const string &s){
-	int n = (int)s.size();
+	int n = int(size(s));
 	if(n < 2){
 		return {};
 	}

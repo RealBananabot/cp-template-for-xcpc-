@@ -7,15 +7,15 @@ using vi = vector<int>;
 
 int cases = 0;
 void check(const string &s){
-	int n = (int)s.size();
+	int n = int(size(s));
 	auto [rk, sa] = SA(s);
 	vi ref(n);
 	iota(ref.begin(), ref.end(), 0);
 	sort(ref.begin(), ref.end(), [&](int i, int j){
 		return lexicographical_compare(s.begin() + i, s.end(), s.begin() + j, s.end(),
-			[](unsigned char a, unsigned char b){return a < b;});
+			[](char a, char b){return a < b;});
 	});
-	assert(sa == ref && (int)rk.size() == n);
+	assert(sa == ref && int(size(rk)) == n);
 	vi h = get_height(s, sa, rk), expected(n);
 	rep(i, 0, n - 1){
 		assert(rk[sa[i]] == i);
@@ -36,7 +36,7 @@ int main(int argc, char **argv){
 	if(mode == "periodic") rep(i, 0, n - 1) s[i] = char('a' + (i & 1));
 	if(mode == "random"){
 		mt19937 rng(3809);
-		for(char &c:s) c = char(rng() % 256);
+		for(char &c:s) c = char(rng() % 128);
 	}
 	auto [rk, sa] = SA(s);
 	vi h = get_height(s, sa, rk);
@@ -52,7 +52,7 @@ int main(int argc, char **argv){
 		sort(ref.begin(), ref.end(), [&](int i, int j){
 			while(i < n && j < n && s[i] == s[j]) i++, j++;
 			if(i == n || j == n) return i == n && j != n;
-			return (unsigned char)s[i] < (unsigned char)s[j];
+			return s[i] < s[j];
 		});
 		assert(ref == sa && h[0] == 0);
 		rep(i, 1, n - 1){
@@ -65,10 +65,10 @@ int main(int argc, char **argv){
 		return 0;
 	}
 	check("");
-	rep(c, 0, 255) check(string(1, char(c)));
-	rep(a, 0, 255) rep(b, 0, 255) check(string{char(a), char(b)});
+	rep(c, 0, 127) check(string(1, char(c)));
+	rep(a, 0, 127) rep(b, 0, 127) check(string{char(a), char(b)});
 	string all;
-	rep(c, 0, 255) all += char(c);
+	rep(c, 0, 127) all += char(c);
 	check(all);
 	reverse(all.begin(), all.end());
 	check(all);
@@ -78,14 +78,14 @@ int main(int argc, char **argv){
 		rep(mask, 0, total - 1){
 			int x = mask;
 			string s(n, 'a');
-			for(char &c:s){c += x % 3; x /= 3;}
+			for(char &c:s){c = char(c + x % 3); x /= 3;}
 			check(s);
 		}
 	}
 	mt19937 rng(3809);
 	rep(tc, 1, 20000){
-		int n = (int)(rng() % 100);
-		int sigma = array{1, 2, 5, 128, 256}[rng() % 5];
+		int n = int(rng() % 100);
+		int sigma = array{1, 2, 5, 64, 128}[rng() % 5];
 		string s(n, 0);
 		for(char &c:s) c = char(rng() % sigma);
 		check(s);

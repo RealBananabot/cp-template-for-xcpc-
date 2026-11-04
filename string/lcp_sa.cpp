@@ -1,4 +1,4 @@
-// 依赖缺省源及 sa.cpp；按无符号字节比较，不保留输入串引用。
+// 依赖缺省源及 sa.cpp；按 ASCII（0..127）比较，不保留输入串引用。
 // 查询下标 [0, n)，lcs(x, y) 包含位置 x、y；空串可构造，不可查询。
 // 预处理 O(n log n) 时间、空间；lcp/lcs/cmp 均为 O(1)。
 // 要求长度能用 int 表示；两份 ST 在 n = 10^6 时约占 145 MiB。
@@ -6,7 +6,7 @@ struct sa_lcp{
 	struct rmq{
 		vector<vi> f;
 		rmq(vi a = {}){
-			int n = (int)a.size();
+			int n = int(size(a));
 			if(!n){
 				return;
 			}
@@ -27,7 +27,7 @@ struct sa_lcp{
 	int n;
 	vi rk, rrk;
 	rmq pre, suf;
-	sa_lcp(const string &s): n((int)s.size()){
+	sa_lcp(const string &s): n(int(size(s))){
 		auto [a, b] = SA(s);
 		pre = rmq(get_height(s, b, a));
 		rk = move(a);

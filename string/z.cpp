@@ -1,8 +1,8 @@
-// 依赖缺省源中的 vi、rep；按字节比较，长度须能用 int 表示。
+// 依赖缺省源中的 vi、rep；按 ASCII（0..127）比较，长度须能用 int 表示。
 // z[i] = lcp(s, s[i..])，z[0] = n；空串返回空数组。
 // O(n) 时间、O(n) 空间；用于扩展匹配时，初始区间应为空（r = -1）。
 vi zfunc(const string &s){
-	int n = (int)s.size();
+	int n = int(size(s));
 	vi z(n);
 	if(n){
 		z[0] = n;
@@ -25,7 +25,7 @@ vi zfunc(const string &s){
 // p[i] = lcp(t, s[i..])；s 为文本串，t 为模式串。
 // 空文本返回空数组，空模式返回全 0；O(n + m) 时间、空间。
 vi exkmp(const string &s, const string &t){
-	int n = (int)s.size(), m = (int)t.size();
+	int n = int(size(s)), m = int(size(t));
 	vi p(n);
 	if(!n || !m){
 		return p;

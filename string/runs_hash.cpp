@@ -1,9 +1,9 @@
 // 依赖缺省源中的 i64、vi、rep、per、pb；与 runs_sa.cpp 二选一。
 // 返回排序、去重后的 {l, r, p}，0 下标闭区间，p 为最小周期。
-// 按无符号字节比较，支持空串；要求 n < INT_MAX。
+// 按 ASCII（0..127）比较，支持空串；要求 n < INT_MAX。
 // O(n log n) 时间、O(n) 空间；固定单模哈希存在碰撞反例，不保证正确。
 vector<tuple<int, int, int>> get_runs(const string &s){
-	int n = (int)s.size();
+	int n = int(size(s));
 	if(n < 2){
 		return {};
 	}
@@ -11,11 +11,11 @@ vector<tuple<int, int, int>> get_runs(const string &s){
 	vi pw(n + 1), pre(n + 1);
 	pw[0] = 1;
 	rep(i, 0, n - 1){
-		pw[i + 1] = (i64)pw[i] * base % mod;
-		pre[i + 1] = ((i64)pre[i] * base + (unsigned char)s[i]) % mod;
+		pw[i + 1] = int(i64(pw[i]) * base % mod);
+		pre[i + 1] = int((i64(pre[i]) * base + s[i]) % mod);
 	}
 	auto val = [&](int l, int r){
-		int res = pre[r] - (i64)pre[l] * pw[r - l] % mod;
+		int res = int(pre[r] - i64(pre[l]) * pw[r - l] % mod);
 		return (res < 0 ? res + mod : res);
 	};
 	auto lcp = [&](int x, int y){
@@ -53,7 +53,7 @@ vector<tuple<int, int, int>> get_runs(const string &s){
 		if(x + len == n || y + len == n){
 			return x + len == n && y + len != n;
 		}
-		return (unsigned char)s[x + len] < (unsigned char)s[y + len];
+		return s[x + len] < s[y + len];
 	};
 	vector<tuple<int, int, int>> res;
 	auto chk = [&](int x, int y){

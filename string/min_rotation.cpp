@@ -3,7 +3,7 @@
 // 支持任意 int 元素；长度须不超过 INT_MAX / 2。
 // Duval 算法 O(n) 时间、O(1) 辅助空间，不修改输入。
 int min_rotation(const vi &a){
-	int n = (int)a.size(), i = 0, ans = -1;
+	int n = int(size(a)), i = 0, ans = -1;
 	while(i < n){
 		ans = i;
 		int j = i, k = i + 1;

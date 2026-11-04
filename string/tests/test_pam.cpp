@@ -9,7 +9,7 @@ bool pal(const string &s){
 	return equal(s.begin(), s.end(), s.rbegin());
 }
 void check(const string &s){
-	int n = s.size();
+	int n = int(size(s));
 	PAM a(n), b(n);
 	a.str = s;
 	assert(a.tot == 2 && a.fa[1] == 2 && a.fa[2] == 2);
@@ -28,21 +28,21 @@ void check(const string &s){
 			if(pal(t)){
 				cnt++;
 				distinct.insert(t);
-				if((int)t.size() > mx) mx = t.size(), best = t;
+				if(int(size(t)) > mx) mx = int(size(t)), best = t;
 			}
 		}
-		assert(a.len[u] == mx && a.dep[u] == cnt && a.tot - 2 == (int)distinct.size());
+		assert(a.len[u] == mx && a.dep[u] == cnt && a.tot - 2 == int(size(distinct)));
 		if(id.count(best)) assert(id[best] == u);
 		else id[best] = u, label[u] = best;
 		assert(u == v && a.tot == b.tot && a.s == b.s);
 		assert(a.fa == b.fa && a.len == b.len && a.dep == b.dep);
-		assert((int)a.s.size() == a.tot + 1);
+		assert(int(size(a.s)) == a.tot + 1);
 	}
-	assert(id.size() == distinct.size());
+	assert(size(id) == size(distinct));
 	rep(i, 3, a.tot){
-		assert(!label[i].empty() && a.len[i] == (int)label[i].size());
+		assert(!label[i].empty() && a.len[i] == int(size(label[i])));
 		int p = 1;
-		rep(j, 1, (int)label[i].size() - 1){
+		rep(j, 1, int(size(label[i])) - 1){
 			string t = label[i].substr(j);
 			if(pal(t)){ p = id.at(t); break; }
 		}
@@ -54,7 +54,7 @@ void check(const string &s){
 	rep(i, 1, a.tot) rep(c, 0, 25){
 		int j = a.s[i][c];
 		if(!j) continue;
-		string t(1, 'a' + c);
+		string t(1, char('a' + c));
 		if(i != 2) t += label[i], t += char('a' + c);
 		assert(j >= 3 && label[j] == t);
 	}
@@ -65,7 +65,7 @@ int main(int argc, char **){
 		for(int typ = 0; typ < 3; typ++){
 			PAM a(n);
 			a.str.resize(n);
-			rep(i, 0, n - 1) a.str[i] = (typ == 0 ? 'a' : (typ == 1 ? 'a' + i % 2 : 'a' + i % 26));
+			rep(i, 0, n - 1) a.str[i] = char(typ == 0 ? 'a' : (typ == 1 ? 'a' + i % 2 : 'a' + i % 26));
 			int u = 1;
 			rep(i, 0, n - 1){
 				u = a.ins(u, i);
@@ -80,14 +80,14 @@ int main(int argc, char **){
 	int cases = 0;
 	rep(n, 0, 12) rep(mask, 0, (1 << n) - 1){
 		string s(n, 'a');
-		rep(i, 0, n - 1) s[i] += mask >> i & 1;
+		rep(i, 0, n - 1) s[i] = char('a' + ((mask >> i) & 1));
 		check(s); cases++;
 	}
 	mt19937 rng(5496);
 	rep(it, 1, 3000){
-		int n = rng() % 41, k = (it % 4 == 0 ? 26 : it % 4);
+		int n = int(rng() % 41), k = (it % 4 == 0 ? 26 : it % 4);
 		string s(n, 'a');
-		for(char &c:s) c += rng() % k;
+		for(char &c:s) c = char(c + int(rng() % k));
 		check(s); cases++;
 	}
 	cout << cases << " brute and structure checks passed\n";
