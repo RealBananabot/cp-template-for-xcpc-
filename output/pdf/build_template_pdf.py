@@ -26,7 +26,7 @@ pdfmetrics.registerFont(TTFont('CJK', '/usr/share/fonts/truetype/droid/DroidSans
 W, H = A4
 MARGIN, GAP, GUTTER = 23, 15, 17
 COL = (W - MARGIN * 2 - GAP) / 2
-FONT, LEAD = 7.2, 8.35
+FONT, LEAD = 7.2, 8.3
 TOP, BOTTOM = H - 42, 29
 SHA = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=ROOT, text=True).strip()
 TRACKED = set(subprocess.check_output(['git', 'ls-files'], cwd=ROOT, text=True).splitlines())
