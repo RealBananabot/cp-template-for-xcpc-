@@ -1,0 +1,1173 @@
+{
+  "source_sha256": "5c49abef3c4d3e3867177eef36be11eb62f41dd172a95f8418658153f1c405fd",
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "flags": [
+    "-std=gnu++20",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wconversion",
+    "-Werror"
+  ],
+  "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 H 260 w/ Radeon 780M Graphics\nCPU family:                              25\nModel:                                   117\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                2\nFrequency boost:                         enabled\nCPU(s) scaling MHz:                      72%\nCPU max MHz:                             5102.7129\nCPU min MHz:                             416.5480\nBogoMIPS:                                7586.21\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca fsrm flush_l1d amd_lbr_pmc_freeze\nVirtualization:                          AMD-V\nL1d cache:                               256 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                8 MiB (8 instances)\nL3 cache:                                16 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; Safe RET\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Mitigation; Clear CPU buffers\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+  "pinned_cpu": 2,
+  "full_repeats": 7,
+  "phase_repeats": 3,
+  "timing": "steady_clock; construction, allocation, all preprocessing, restoration and destruction included; input/output excluded",
+  "phase_timing": "instrumented copies; construction of empty vectors negligible, temporary marker destruction follows restore timer",
+  "memory": "Linux /proc/self/status VmHWM for current executable; array_bytes includes vector capacities, temporary sieve markers and DP buffer, excludes object/allocator overhead",
+  "cases": [
+    {
+      "n": 1000000,
+      "counts": {
+        "answer": 998343663,
+        "recursive_calls": 9108,
+        "prime_updates": 24641,
+        "dp_states": 24641,
+        "dp_powers": 54886
+      },
+      "rec": {
+        "full_samples": [
+          {
+            "answer": 998343663,
+            "total_ms": 0.187911,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4008,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.182921,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4056,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.185235,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4056,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.299362,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4060,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.186127,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4056,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.1879,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4032,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.184093,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4060,
+            "array_bytes": 21028
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 998343663,
+            "total_ms": 0.187419,
+            "build_ms": 0.11576,
+            "restore_ms": 0.071249,
+            "rss_kib": 4064,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.185706,
+            "build_ms": 0.115559,
+            "restore_ms": 0.069706,
+            "rss_kib": 4016,
+            "array_bytes": 21028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.184634,
+            "build_ms": 0.114568,
+            "restore_ms": 0.069816,
+            "rss_kib": 4008,
+            "array_bytes": 21028
+          }
+        ],
+        "median_total_ms": 0.186127,
+        "median_build_ms": 0.115559,
+        "median_restore_ms": 0.069816,
+        "median_peak_rss_kib": 4056,
+        "array_bytes": 21028
+      },
+      "dp": {
+        "full_samples": [
+          {
+            "answer": 998343663,
+            "total_ms": 0.355283,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4064,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.361394,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4064,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.383384,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4064,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.355243,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4068,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.362737,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4064,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.353891,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4060,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.352839,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4060,
+            "array_bytes": 29028
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 998343663,
+            "total_ms": 0.358089,
+            "build_ms": 0.116982,
+            "restore_ms": 0.240917,
+            "rss_kib": 4052,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.360112,
+            "build_ms": 0.117503,
+            "restore_ms": 0.242419,
+            "rss_kib": 4064,
+            "array_bytes": 29028
+          },
+          {
+            "answer": 998343663,
+            "total_ms": 0.352789,
+            "build_ms": 0.117232,
+            "restore_ms": 0.235377,
+            "rss_kib": 4060,
+            "array_bytes": 29028
+          }
+        ],
+        "median_total_ms": 0.355283,
+        "median_build_ms": 0.117232,
+        "median_restore_ms": 0.240917,
+        "median_peak_rss_kib": 4064,
+        "array_bytes": 29028
+      }
+    },
+    {
+      "n": 100000000,
+      "counts": {
+        "answer": 879803377,
+        "recursive_calls": 228102,
+        "prime_updates": 614527,
+        "dp_states": 614527,
+        "dp_powers": 1160706
+      },
+      "rec": {
+        "full_samples": [
+          {
+            "answer": 879803377,
+            "total_ms": 4.165903,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.16945,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4208,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.096297,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4208,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.206407,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4176,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.151467,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.134196,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.086509,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 208196
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 879803377,
+            "total_ms": 4.172966,
+            "build_ms": 2.545479,
+            "restore_ms": 1.614844,
+            "rss_kib": 4204,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.20256,
+            "build_ms": 2.55688,
+            "restore_ms": 1.629611,
+            "rss_kib": 4204,
+            "array_bytes": 208196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 4.250887,
+            "build_ms": 2.627116,
+            "restore_ms": 1.599657,
+            "rss_kib": 4232,
+            "array_bytes": 208196
+          }
+        ],
+        "median_total_ms": 4.151467,
+        "median_build_ms": 2.55688,
+        "median_restore_ms": 1.614844,
+        "median_peak_rss_kib": 4204,
+        "array_bytes": 208196
+      },
+      "dp": {
+        "full_samples": [
+          {
+            "answer": 879803377,
+            "total_ms": 7.709971,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.7317,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.729035,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4188,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.672953,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.777032,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4180,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.728985,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.814159,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4204,
+            "array_bytes": 288196
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 879803377,
+            "total_ms": 7.65973,
+            "build_ms": 2.591733,
+            "restore_ms": 5.048131,
+            "rss_kib": 4236,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.673094,
+            "build_ms": 2.615105,
+            "restore_ms": 5.042301,
+            "rss_kib": 4208,
+            "array_bytes": 288196
+          },
+          {
+            "answer": 879803377,
+            "total_ms": 7.693842,
+            "build_ms": 2.635913,
+            "restore_ms": 5.041548,
+            "rss_kib": 4208,
+            "array_bytes": 288196
+          }
+        ],
+        "median_total_ms": 7.729035,
+        "median_build_ms": 2.615105,
+        "median_restore_ms": 5.042301,
+        "median_peak_rss_kib": 4204,
+        "array_bytes": 288196
+      }
+    },
+    {
+      "n": 1000000000,
+      "counts": {
+        "answer": 710164413,
+        "recursive_calls": 1185818,
+        "prime_updates": 3092168,
+        "dp_states": 3092168,
+        "dp_powers": 5328161
+      },
+      "rec": {
+        "full_samples": [
+          {
+            "answer": 710164413,
+            "total_ms": 20.825439,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 21.840015,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 20.941057,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4396,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 21.200678,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 21.17412,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 20.972674,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4408,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 20.92023,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 710164413,
+            "total_ms": 21.817786,
+            "build_ms": 12.852451,
+            "restore_ms": 8.868899,
+            "rss_kib": 4404,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 21.044896,
+            "build_ms": 12.524178,
+            "restore_ms": 8.446173,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 21.456712,
+            "build_ms": 12.866528,
+            "restore_ms": 8.537017,
+            "rss_kib": 4400,
+            "array_bytes": 648836
+          }
+        ],
+        "median_total_ms": 20.972674,
+        "median_build_ms": 12.852451,
+        "median_restore_ms": 8.537017,
+        "median_peak_rss_kib": 4400,
+        "array_bytes": 648836
+      },
+      "dp": {
+        "full_samples": [
+          {
+            "answer": 710164413,
+            "total_ms": 36.662524,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4656,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 37.042323,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4656,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 36.749232,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4664,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 36.859101,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4540,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 36.570057,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4660,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 36.866725,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4656,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 37.074421,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 4656,
+            "array_bytes": 901816
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 710164413,
+            "total_ms": 36.793853,
+            "build_ms": 13.195012,
+            "restore_ms": 23.555453,
+            "rss_kib": 4648,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 36.649651,
+            "build_ms": 13.118874,
+            "restore_ms": 23.490845,
+            "rss_kib": 4664,
+            "array_bytes": 901816
+          },
+          {
+            "answer": 710164413,
+            "total_ms": 36.940709,
+            "build_ms": 13.352718,
+            "restore_ms": 23.529615,
+            "rss_kib": 4656,
+            "array_bytes": 901816
+          }
+        ],
+        "median_total_ms": 36.859101,
+        "median_build_ms": 13.195012,
+        "median_restore_ms": 23.529615,
+        "median_peak_rss_kib": 4656,
+        "array_bytes": 901816
+      }
+    },
+    {
+      "n": 8589934592,
+      "counts": {
+        "answer": 52488394,
+        "recursive_calls": 5637784,
+        "prime_updates": 14099187,
+        "dp_states": 14099187,
+        "dp_powers": 22308611
+      },
+      "rec": {
+        "full_samples": [
+          {
+            "answer": 52488394,
+            "total_ms": 98.902947,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5680,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 98.641334,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5680,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 99.946588,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5680,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 98.050418,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5680,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 102.320772,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5680,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 102.395567,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5608,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 99.564995,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5684,
+            "array_bytes": 1919168
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 52488394,
+            "total_ms": 103.697731,
+            "build_ms": 59.053363,
+            "restore_ms": 44.452399,
+            "rss_kib": 5660,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 101.580385,
+            "build_ms": 57.059111,
+            "restore_ms": 44.360834,
+            "rss_kib": 5588,
+            "array_bytes": 1919168
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 100.941929,
+            "build_ms": 57.258673,
+            "restore_ms": 43.50275,
+            "rss_kib": 5684,
+            "array_bytes": 1919168
+          }
+        ],
+        "median_total_ms": 99.564995,
+        "median_build_ms": 57.258673,
+        "median_restore_ms": 44.360834,
+        "median_peak_rss_kib": 5680,
+        "array_bytes": 1919168
+      },
+      "dp": {
+        "full_samples": [
+          {
+            "answer": 52488394,
+            "total_ms": 159.90395,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6448,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 160.497195,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6356,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 161.348179,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6336,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 159.856468,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6332,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 160.331949,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6340,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 160.175781,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6424,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 159.979504,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6448,
+            "array_bytes": 2660620
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 52488394,
+            "total_ms": 159.577766,
+            "build_ms": 59.58688,
+            "restore_ms": 99.870568,
+            "rss_kib": 6448,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 159.954379,
+            "build_ms": 59.911778,
+            "restore_ms": 99.917785,
+            "rss_kib": 6440,
+            "array_bytes": 2660620
+          },
+          {
+            "answer": 52488394,
+            "total_ms": 160.153803,
+            "build_ms": 60.162532,
+            "restore_ms": 99.866255,
+            "rss_kib": 6448,
+            "array_bytes": 2660620
+          }
+        ],
+        "median_total_ms": 160.175781,
+        "median_build_ms": 59.911778,
+        "median_restore_ms": 99.870568,
+        "median_peak_rss_kib": 6356,
+        "array_bytes": 2660620
+      }
+    },
+    {
+      "n": 9998200081,
+      "counts": {
+        "answer": 425353573,
+        "recursive_calls": 6297832,
+        "prime_updates": 15695554,
+        "dp_states": 15695554,
+        "dp_powers": 24694794
+      },
+      "rec": {
+        "full_samples": [
+          {
+            "answer": 425353573,
+            "total_ms": 159.993294,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5696,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 143.553917,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5788,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 145.191813,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 140.457225,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 124.057288,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 140.136416,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5776,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 147.359142,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065360
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 425353573,
+            "total_ms": 161.51089,
+            "build_ms": 86.395914,
+            "restore_ms": 74.937795,
+            "rss_kib": 5808,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 145.042743,
+            "build_ms": 81.532492,
+            "restore_ms": 63.350713,
+            "rss_kib": 5796,
+            "array_bytes": 2065360
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 142.415426,
+            "build_ms": 75.754827,
+            "restore_ms": 66.488096,
+            "rss_kib": 5772,
+            "array_bytes": 2065360
+          }
+        ],
+        "median_total_ms": 143.553917,
+        "median_build_ms": 81.532492,
+        "median_restore_ms": 66.488096,
+        "median_peak_rss_kib": 5808,
+        "array_bytes": 2065360
+      },
+      "dp": {
+        "full_samples": [
+          {
+            "answer": 425353573,
+            "total_ms": 229.014611,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6576,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 213.93685,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6472,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 225.411536,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6544,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 207.303494,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6696,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 176.573445,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6700,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 218.857585,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6540,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 220.917909,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6704,
+            "array_bytes": 2865288
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 425353573,
+            "total_ms": 225.423182,
+            "build_ms": 87.39773,
+            "restore_ms": 137.830539,
+            "rss_kib": 6612,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 212.067364,
+            "build_ms": 80.799044,
+            "restore_ms": 131.027363,
+            "rss_kib": 6560,
+            "array_bytes": 2865288
+          },
+          {
+            "answer": 425353573,
+            "total_ms": 220.426249,
+            "build_ms": 89.053231,
+            "restore_ms": 131.209392,
+            "rss_kib": 6576,
+            "array_bytes": 2865288
+          }
+        ],
+        "median_total_ms": 218.857585,
+        "median_build_ms": 87.39773,
+        "median_restore_ms": 131.209392,
+        "median_peak_rss_kib": 6576,
+        "array_bytes": 2865288
+      }
+    },
+    {
+      "n": 10000000000,
+      "counts": {
+        "answer": 214492138,
+        "recursive_calls": 6298637,
+        "prime_updates": 15697553,
+        "dp_states": 15697553,
+        "dp_powers": 24697772
+      },
+      "rec": {
+        "full_samples": [
+          {
+            "answer": 214492138,
+            "total_ms": 110.725163,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 110.871268,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 109.530798,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 110.228208,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 110.13512,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 112.932498,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 112.113751,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 214492138,
+            "total_ms": 116.211137,
+            "build_ms": 64.082876,
+            "restore_ms": 51.973791,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 142.529613,
+            "build_ms": 78.802973,
+            "restore_ms": 63.446523,
+            "rss_kib": 5808,
+            "array_bytes": 2065540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 118.538501,
+            "build_ms": 66.21575,
+            "restore_ms": 52.131775,
+            "rss_kib": 5772,
+            "array_bytes": 2065540
+          }
+        ],
+        "median_total_ms": 110.725163,
+        "median_build_ms": 66.21575,
+        "median_restore_ms": 52.131775,
+        "median_peak_rss_kib": 5808,
+        "array_bytes": 2065540
+      },
+      "dp": {
+        "full_samples": [
+          {
+            "answer": 214492138,
+            "total_ms": 177.161615,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6576,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 177.037821,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6584,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 177.811864,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6556,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 177.302456,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6472,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 177.388692,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6572,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 178.534748,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6704,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 179.251976,
+            "build_ms": 0.0,
+            "restore_ms": 0.0,
+            "rss_kib": 6704,
+            "array_bytes": 2865540
+          }
+        ],
+        "phase_samples": [
+          {
+            "answer": 214492138,
+            "total_ms": 178.863951,
+            "build_ms": 67.205044,
+            "restore_ms": 111.506411,
+            "rss_kib": 6568,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 220.351037,
+            "build_ms": 86.265968,
+            "restore_ms": 133.952669,
+            "rss_kib": 6576,
+            "array_bytes": 2865540
+          },
+          {
+            "answer": 214492138,
+            "total_ms": 190.760063,
+            "build_ms": 69.684808,
+            "restore_ms": 120.869783,
+            "rss_kib": 6576,
+            "array_bytes": 2865540
+          }
+        ],
+        "median_total_ms": 177.388692,
+        "median_build_ms": 69.684808,
+        "median_restore_ms": 120.869783,
+        "median_peak_rss_kib": 6576,
+        "array_bytes": 2865540
+      }
+    }
+  ]
+}

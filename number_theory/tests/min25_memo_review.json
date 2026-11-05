@@ -1,0 +1,239 @@
+{
+  "n": 10000000000,
+  "repetitions": 7,
+  "cpu": 2,
+  "command": "taskset -c 2 bench MODE N QUERIES",
+  "timing": "construction, preprocessing, queries and destruction; excludes process startup and I/O",
+  "sources": {
+    "original.hpp": "5c49abef3c4d3e3867177eef36be11eb62f41dd172a95f8418658153f1c405fd",
+    "memo.hpp": "542920d3324fb03baab75029e4bb8009dbe46274f671d0e6428b0a950b268407",
+    "bench.cpp": "2d0b19e3e55e7066130896951cf74b8191f22e6cbb30a7bb007fa2dfb2bf5730"
+  },
+  "results": [
+    {
+      "queries": 1,
+      "runs": [
+        {
+          "answer": 214492138,
+          "ms": 113.97528,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1569.819085,
+          "states": 2251023,
+          "rss_kib": 99124,
+          "mode": "memo"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1555.315522,
+          "states": 2251023,
+          "rss_kib": 99128,
+          "mode": "memo"
+        },
+        {
+          "answer": 214492138,
+          "ms": 110.730652,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 109.74244,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1573.558331,
+          "states": 2251023,
+          "rss_kib": 99132,
+          "mode": "memo"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1572.837336,
+          "states": 2251023,
+          "rss_kib": 99128,
+          "mode": "memo"
+        },
+        {
+          "answer": 214492138,
+          "ms": 110.340918,
+          "states": 0,
+          "rss_kib": 5792,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 133.511664,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1625.918154,
+          "states": 2251023,
+          "rss_kib": 99052,
+          "mode": "memo"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1564.833407,
+          "states": 2251023,
+          "rss_kib": 99132,
+          "mode": "memo"
+        },
+        {
+          "answer": 214492138,
+          "ms": 111.589121,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 110.53129,
+          "states": 0,
+          "rss_kib": 5816,
+          "mode": "plain"
+        },
+        {
+          "answer": 214492138,
+          "ms": 1579.106224,
+          "states": 2251023,
+          "rss_kib": 99128,
+          "mode": "memo"
+        }
+      ]
+    },
+    {
+      "queries": 100,
+      "runs": [
+        {
+          "answer": 875919244,
+          "ms": 540.021832,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2049.49173,
+          "states": 2362637,
+          "rss_kib": 102196,
+          "mode": "memo"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2074.690903,
+          "states": 2362637,
+          "rss_kib": 102116,
+          "mode": "memo"
+        },
+        {
+          "answer": 875919244,
+          "ms": 543.361366,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 540.858343,
+          "states": 0,
+          "rss_kib": 5816,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2063.780612,
+          "states": 2362637,
+          "rss_kib": 102224,
+          "mode": "memo"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2021.541325,
+          "states": 2362637,
+          "rss_kib": 102228,
+          "mode": "memo"
+        },
+        {
+          "answer": 875919244,
+          "ms": 537.957757,
+          "states": 0,
+          "rss_kib": 5796,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 571.84413,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2302.801293,
+          "states": 2362637,
+          "rss_kib": 102220,
+          "mode": "memo"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2385.651681,
+          "states": 2362637,
+          "rss_kib": 102228,
+          "mode": "memo"
+        },
+        {
+          "answer": 875919244,
+          "ms": 664.119543,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 674.844738,
+          "states": 0,
+          "rss_kib": 5808,
+          "mode": "plain"
+        },
+        {
+          "answer": 875919244,
+          "ms": 2329.538286,
+          "states": 2362637,
+          "rss_kib": 102224,
+          "mode": "memo"
+        }
+      ]
+    }
+  ],
+  "date": "2026-11-05",
+  "status": "historical evaluation; experimental memoized variant is not a production template",
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "flags": [
+    "-std=gnu++20",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wconversion",
+    "-Werror"
+  ],
+  "cpu_info": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 H 260 w/ Radeon 780M Graphics\nCPU family:                              25\nModel:                                   117\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                2\nFrequency boost:                         enabled\nCPU(s) scaling MHz:                      82%\nCPU max MHz:                             5102.7129\nCPU min MHz:                             416.5480\nBogoMIPS:                                7586.21\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca fsrm flush_l1d amd_lbr_pmc_freeze\nVirtualization:                          AMD-V\nL1d cache:                               256 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                8 MiB (8 instances)\nL3 cache:                                16 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; Safe RET\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Mitigation; Clear CPU buffers\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+  "source_snapshots": {
+    "original.hpp": "// Min_25 示例：积性 f，f(p^e)=p^e*(p^e-1)，f(1)=1。\n// solve(n) 返回 sum_{i=1}^n f(i) mod 1e9+7；0<=n<=1e10，solve(0)=0。\n// 先筛质数的一次、二次幂和，再按最小质因子枚举质数幂；普通整数除法。\nstruct Min25{\n\tstatic const int mod = 1000000007;\n\ti64 n = 0;\n\tint sq = 0, m = 0;\n\tvi pr, f, g;\n\t// 仅用于当前 n 的不同正整除商，编号 [1,m]，值递增。\n\tint id(i64 x){\n\t\treturn (x <= sq ? int(x) : m + 1 - int(n / x));\n\t}\n\ti64 val(int i){\n\t\treturn (i <= sq ? i64(i) : n / (m + 1 - i));\n\t}\n\t// 排除前 i 个质因子，求 2..x 的 f 之和；x 须为当前 n 的正整除商。\n\tint calc(i64 x, int i){\n\t\tif(x <= 1 || (i && x <= pr[i - 1])){\n\t\t\treturn 0;\n\t\t}\n\t\tint j = id(x);\n\t\ti64 res = g[j] - f[j];\n\t\tif(i){\n\t\t\tres -= g[pr[i - 1]] - f[pr[i - 1]];\n\t\t}\n\t\tfor(int k = i; k < int(size(pr)) && i64(pr[k]) * pr[k] <= x; k++){\n\t\t\ti64 p = pr[k];\n\t\t\tfor(i64 pw = p; pw <= x / p; pw *= p){\n\t\t\t\ti64 a = pw % mod, b = pw * p % mod;\n\t\t\t\tres = (res + a * (a - 1) % mod * calc(x / pw, k + 1) + b * (b - 1)) % mod;\n\t\t\t}\n\t\t}\n\t\treturn int(res % mod);\n\t}\n\tint solve(i64 _n){\n\t\tn = _n;\n\t\tsq = int(sqrt(n));\n\t\twhile(i64(sq + 1) * (sq + 1) <= n){\n\t\t\tsq++;\n\t\t}\n\t\twhile(i64(sq) * sq > n){\n\t\t\tsq--;\n\t\t}\n\t\tm = sq + int(n / (sq + 1));\n\t\tpr.clear();\n\t\tvi np(sq + 1);\n\t\trep(i, 2, sq){\n\t\t\tif(!np[i]){\n\t\t\t\tpr.pb(i);\n\t\t\t\tfor(i64 j = i64(i) * i; j <= sq; j += i){\n\t\t\t\t\tnp[int(j)] = 1;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tf.assign(m + 1, 0), g.assign(m + 1, 0);\n\t\trep(i, 1, m){\n\t\t\ti64 x = val(i) % mod;\n\t\t\tf[i] = int(x * (x + 1) / 2 % mod - 1);\n\t\t\tg[i] = int(x * (x + 1) % mod * (2 * x + 1) % mod * 166666668 % mod - 1);\n\t\t}\n\t\tfor(int p:pr){\n\t\t\tper(i, m, 1){\n\t\t\t\ti64 x = val(i);\n\t\t\t\tif(x < i64(p) * p){\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\tint j = id(x / p);\n\t\t\t\tf[i] = int((f[i] - i64(p) * (f[j] - f[p - 1])) % mod);\n\t\t\t\tg[i] = int((g[i] - i64(p) * p % mod * (g[j] - g[p - 1])) % mod);\n\t\t\t}\n\t\t}\n\t\treturn (n ? (calc(n, 0) + 1 + mod) % mod : 0);\n\t}\n};\n",
+    "memo.hpp": "// Min_25 示例：积性 f，f(p^e)=p^e*(p^e-1)，f(1)=1。\n// solve(n) 返回 sum_{i=1}^n f(i) mod 1e9+7；0<=n<=1e10，solve(0)=0。\n// 先筛质数的一次、二次幂和，再按最小质因子枚举质数幂；普通整数除法。\nstruct MemoMin25{\n\tstatic const int mod = 1000000007;\n\ti64 n = 0;\n\tint sq = 0, m = 0;\n\tvi pr, f, g;\n\tunordered_map<i64, int> mem;\n\t// 仅用于当前 n 的不同正整除商，编号 [1,m]，值递增。\n\tint id(i64 x){\n\t\treturn (x <= sq ? int(x) : m + 1 - int(n / x));\n\t}\n\ti64 val(int i){\n\t\treturn (i <= sq ? i64(i) : n / (m + 1 - i));\n\t}\n\t// 排除前 i 个质因子，求 2..x 的 f 之和；x 须为当前 n 的正整除商。\n\tint calc(i64 x, int i){\n\t\tif(x <= 1 || (i && x <= pr[i - 1])){\n\t\t\treturn 0;\n\t\t}\n\t\ti64 key = (x << 14) + i;\n\t\tif(auto it = mem.find(key); it != mem.end()){\n\t\t\treturn it->se;\n\t\t}\n\t\tint j = id(x);\n\t\ti64 res = g[j] - f[j];\n\t\tif(i){\n\t\t\tres -= g[pr[i - 1]] - f[pr[i - 1]];\n\t\t}\n\t\tfor(int k = i; k < int(size(pr)) && i64(pr[k]) * pr[k] <= x; k++){\n\t\t\ti64 p = pr[k];\n\t\t\tfor(i64 pw = p; pw <= x / p; pw *= p){\n\t\t\t\ti64 a = pw % mod, b = pw * p % mod;\n\t\t\t\tres = (res + a * (a - 1) % mod * calc(x / pw, k + 1) + b * (b - 1)) % mod;\n\t\t\t}\n\t\t}\n\t\treturn mem[key] = int(res % mod);\n\t}\n\tint solve(i64 _n){\n\t\tmem.clear();\n\t\tn = _n;\n\t\tsq = int(sqrt(n));\n\t\twhile(i64(sq + 1) * (sq + 1) <= n){\n\t\t\tsq++;\n\t\t}\n\t\twhile(i64(sq) * sq > n){\n\t\t\tsq--;\n\t\t}\n\t\tm = sq + int(n / (sq + 1));\n\t\tpr.clear();\n\t\tvi np(sq + 1);\n\t\trep(i, 2, sq){\n\t\t\tif(!np[i]){\n\t\t\t\tpr.pb(i);\n\t\t\t\tfor(i64 j = i64(i) * i; j <= sq; j += i){\n\t\t\t\t\tnp[int(j)] = 1;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tf.assign(m + 1, 0), g.assign(m + 1, 0);\n\t\trep(i, 1, m){\n\t\t\ti64 x = val(i) % mod;\n\t\t\tf[i] = int(x * (x + 1) / 2 % mod - 1);\n\t\t\tg[i] = int(x * (x + 1) % mod * (2 * x + 1) % mod * 166666668 % mod - 1);\n\t\t}\n\t\tfor(int p:pr){\n\t\t\tper(i, m, 1){\n\t\t\t\ti64 x = val(i);\n\t\t\t\tif(x < i64(p) * p){\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\tint j = id(x / p);\n\t\t\t\tf[i] = int((f[i] - i64(p) * (f[j] - f[p - 1])) % mod);\n\t\t\t\tg[i] = int((g[i] - i64(p) * p % mod * (g[j] - g[p - 1])) % mod);\n\t\t\t}\n\t\t}\n\t\treturn (n ? (calc(n, 0) + 1 + mod) % mod : 0);\n\t}\n};\n",
+    "bench.cpp": "#include <bits/stdc++.h>\nusing namespace std;\nusing i64 = long long;\n#define rep(i, j, k) for(int i = (j); i <= (k); i++)\n#define per(i, j, k) for(int i = (j); i >= (k); i--)\n#define pb emplace_back\n#define fi first\n#define se second\nusing vi = vector<int>;\nusing pi = pair<int, int>;\n\nbool chmin(auto &x, const auto &y){\n\tif(y < x){x = y; return true;} return false;\n}\nbool chmax(auto &x, const auto &y){\n\tif(x < y){x = y; return true;} return false;\n}\n\nostream& operator << (ostream &os, const auto &v) \n\trequires requires { v.begin(); } && (!requires { v.substr(); }) {\n\tos << \"[\";\n\tfor (int f = 0; const auto& x : v) os << (f++ ? \", \" : \"\") << x;\n\treturn os << \"]\";\n}\n\ntemplate<typename ...Ar> void debug(char *s, Ar... x){\n\tauto f = [&](auto y){\n\t\tint dep = 0;\n\t\twhile(*s && !(*s == ',' && dep == 0)){\n\t\t\tif(*s == '(') dep++;\n\t\t\tif(*s == ')') dep--;\n\t\t\tcerr << *s++;\n\t\t}\n\t\tcerr <<\" = \"<< y;\n\t\tif(*s == ','){\n\t\t\tcerr << *s ++;\n\t\t} else{\n\t\t\tcerr << endl;\n\t\t}\n\t};\n\n\t(f(x), ...);\n}\n#define gdb(...) debug((char*)#__VA_ARGS__, __VA_ARGS__)\n\n\n#include \"original.hpp\"\n#include \"memo.hpp\"\n\ntemplate<class T> void run(i64 n, int q){\n int ans=0;\n size_t count=0;\n auto start=chrono::steady_clock::now();\n {\n  T s;\n  ans=s.solve(n);\n  for(int k=2;k<=q;k++){\n   ans=int((i64(ans)*31+(s.calc(n/k,0)+1+T::mod)%T::mod)%T::mod);\n  }\n  if constexpr(requires { s.mem; }){count=size(s.mem);}\n }\n double ms=chrono::duration<double,milli>(chrono::steady_clock::now()-start).count();\n ifstream in(\"/proc/self/status\");\n string key,line;\n size_t rss=0;\n while(in>>key){if(key==\"VmHWM:\"){in>>rss;break;}getline(in,line);}\n cout<<fixed<<setprecision(6)<<\"{\\\"answer\\\":\"<<ans<<\",\\\"ms\\\":\"<<ms<<\",\\\"states\\\":\"<<count<<\",\\\"rss_kib\\\":\"<<rss<<\"}\\n\";\n}\nint main(int argc,char**argv){\n assert(argc==4);\n if(string(argv[1])==\"memo\"){run<MemoMin25>(stoll(argv[2]),stoi(argv[3]));}\n else{run<Min25>(stoll(argv[2]),stoi(argv[3]));}\n}\n"
+  },
+  "s_cpp_prelude": "#include <bits/stdc++.h>\nusing namespace std;\nusing i64 = long long;\n#define rep(i, j, k) for(int i = (j); i <= (k); i++)\n#define per(i, j, k) for(int i = (j); i >= (k); i--)\n#define pb emplace_back\n#define fi first\n#define se second\nusing vi = vector<int>;\nusing pi = pair<int, int>;\n\nbool chmin(auto &x, const auto &y){\n\tif(y < x){x = y; return true;} return false;\n}\nbool chmax(auto &x, const auto &y){\n\tif(x < y){x = y; return true;} return false;\n}\n\nostream& operator << (ostream &os, const auto &v) \n\trequires requires { v.begin(); } && (!requires { v.substr(); }) {\n\tos << \"[\";\n\tfor (int f = 0; const auto& x : v) os << (f++ ? \", \" : \"\") << x;\n\treturn os << \"]\";\n}\n\ntemplate<typename ...Ar> void debug(char *s, Ar... x){\n\tauto f = [&](auto y){\n\t\tint dep = 0;\n\t\twhile(*s && !(*s == ',' && dep == 0)){\n\t\t\tif(*s == '(') dep++;\n\t\t\tif(*s == ')') dep--;\n\t\t\tcerr << *s++;\n\t\t}\n\t\tcerr <<\" = \"<< y;\n\t\tif(*s == ','){\n\t\t\tcerr << *s ++;\n\t\t} else{\n\t\t\tcerr << endl;\n\t\t}\n\t};\n\n\t(f(x), ...);\n}\n#define gdb(...) debug((char*)#__VA_ARGS__, __VA_ARGS__)\n\n",
+  "validation": "Memoized variant passed the existing test_min25.cpp suite under strict GNU++20 O2. No sanitizer run on this experimental memoized variant. All measured checksums agreed."
+}
