@@ -1,4 +1,4 @@
-// 依赖缺省源中的 vi、pi、rep、per、pb、fi；仅维护静态 Top Tree 的结构。
+// 依赖缺省源中的 vi、pi、rep、per、pb、fi；保留结构与信息合并接口。
 // G 为 0 下标无向树，root 为原树根；非空时须 0 <= root < n。
 // 原树点 0..n-1 对应叶子，内部节点 n..2n-2，rt 为 Top Tree 根。
 // P 为簇父亲，L/R 为左右子簇；根父亲和叶子儿子均为 -1。
@@ -7,11 +7,25 @@
 // 空树 rt = -1；要求 n <= INT_MAX / 2 且内存足够。
 // 此实现构建 O(n log n)、空间 O(n)，结构高度 O(log n)。
 struct Tree{
+	// 按题意填写 T、叶子初始化与两种合并；复杂度按单次合并 O(1) 计。
+	struct T{};
+	void rake(T &, const T &, const T &){}
+	void compress(T &, const T &, const T &){}
+
 	int n = 0, rt = -1;
 	vi P, L, R, type;
+	vector<T> D;
 	Tree(){}
 	Tree(vector<vi> G, int root = 0){
 		build(move(G), root);
+	}
+	// 仅对内部节点调用；rake / compress 的左右子簇顺序不可交换。
+	void pushup(int u){
+		if(type[u] == 0){
+			rake(D[u], D[L[u]], D[R[u]]);
+		} else{
+			compress(D[u], D[L[u]], D[R[u]]);
+		}
 	}
 	int opt(int u, int v, int op){
 		int x = int(size(P));
@@ -19,6 +33,7 @@ struct Tree{
 		L.pb(u);
 		R.pb(v);
 		type.pb(op);
+		D.pb();
 		P[u] = P[v] = x;
 		return x;
 	}
@@ -46,6 +61,7 @@ struct Tree{
 		L.assign(n, -1);
 		R.assign(n, -1);
 		type.assign(n, -1);
+		D.assign(n, {}); // 在此填写叶子 D[0..n-1] 的初始化。
 		if(!n){
 			return;
 		}
@@ -54,6 +70,7 @@ struct Tree{
 		L.reserve(m);
 		R.reserve(m);
 		type.reserve(m);
+		D.reserve(m);
 		vi ord{root}, pa(n, -1), sz(n, 1);
 		rep(i, 0, n - 1){
 			int u = ord[i];
@@ -92,5 +109,8 @@ struct Tree{
 			return mg(move(a), 1);
 		};
 		rt = Compress(Rake, Compress, root).fi;
+		rep(i, n, int(size(P)) - 1){
+			pushup(i);
+		}
 	}
 };
