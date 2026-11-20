@@ -105,6 +105,7 @@ POLY = [
     (r'^struct dln\s*:', '在线多项式对数'),
     (r'^struct dexp\s*:', '在线多项式指数'),
     (r'^struct dinv\s*:', '在线多项式求逆'),
+    (r'^struct bm\{', 'Berlekamp-Massey'),
     (r'^mint C\(', '阶乘组合数'),
     (r'^mint binom\(', '下降幂组合数'),
 ]

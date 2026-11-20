@@ -100,4 +100,11 @@ int main(){
 		rep(i, 0, m - 1) c.push(f[i]);
 		return move(c.res);
 	});
+	run("berlekamp-massey", [&]{
+		bm c;
+		rep(i, 0, order - 1){
+			c.push(b[i]);
+		}
+		return move(c.res);
+	});
 }

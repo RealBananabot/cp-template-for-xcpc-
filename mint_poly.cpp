@@ -725,6 +725,54 @@ struct dinv : dc{
 	}
 };
 
+// Online Berlekamp–Massey. After each push, L = size(res) is the minimum order.
+// a[i] = sum(res[j] * a[i - 1 - j]) for i >= L and 0 <= j < L.
+// Keep trailing zeros. The empty and all-zero prefixes have order 0.
+// Up to INT_MAX pushes. O(nL + n) total time and O(n) space for n terms.
+struct bm{
+	poly a, res, dlt;
+	int lst = 0;
+
+	void push(mint v){
+		const int i = int(size(a));
+		a.pb(v);
+		mint cdlt = v;
+		rep(j, 0, ssize(res) - 1){
+			cdlt -= a[i - 1 - j] * res[j];
+		}
+		if(!cdlt.x){
+			return;
+		}
+		if(res.empty()){
+			res.resize(i + 1);
+			dlt = {cdlt.qpow()};
+			lst = i;
+			return;
+		}
+
+		const int k = i - lst - 1;
+		const int len = k + int(size(dlt));
+		poly nxt_dlt;
+		if(len > ssize(res)){
+			// Save the old recurrence polynomial scaled by the inverse discrepancy.
+			const mint t = cdlt.qpow();
+			nxt_dlt.resize(size(res) + 1);
+			nxt_dlt[0] = t;
+			rep(j, 0, ssize(res) - 1){
+				nxt_dlt[j + 1] = -t * res[j];
+			}
+			res.resize(len);
+			lst = i;
+		}
+		rep(j, 0, ssize(dlt) - 1){
+			res[k + j] += cdlt * dlt[j];
+		}
+		if(!nxt_dlt.empty()){
+			dlt = move(nxt_dlt);
+		}
+	}
+};
+
 // 0 <= m < S. Returns 0 when n is outside [0, m].
 mint C(int m, int n){
 	return (n < 0 || n > m ? 0 : fac[m] * ifac[n] * ifac[m - n]);

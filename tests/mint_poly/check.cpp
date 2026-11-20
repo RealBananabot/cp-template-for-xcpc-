@@ -348,6 +348,117 @@ void online(int n, bool sparse){
 	}
 }
 
+bool recurrence_exists(const poly &a, int n, int len){
+	polyY A(n - len, poly(len + 1));
+	rep(i, len, n - 1){
+		rep(j, 0, len - 1){
+			A[i - len][j] = a[i - 1 - j];
+		}
+		A[i - len][len] = a[i];
+	}
+	int r = 0;
+	rep(j, 0, len - 1){
+		int k = r;
+		while(k < ssize(A) && !A[k][j].x){
+			k++;
+		}
+		if(k == ssize(A)){
+			continue;
+		}
+		swap(A[r], A[k]);
+		const mint inv = A[r][j].qpow();
+		rep(i, r + 1, ssize(A) - 1){
+			const mint t = A[i][j] * inv;
+			rep(k, j, len){
+				A[i][k] -= t * A[r][k];
+			}
+		}
+		r++;
+	}
+	rep(i, r, ssize(A) - 1){
+		if(A[i][len].x){
+			return false;
+		}
+	}
+	return true;
+}
+
+void check_recurrence(const poly &a){
+	bm c;
+	assert(c.res.empty());
+	rep(n, 1, ssize(a)){
+		c.push(a[n - 1]);
+		const int len = int(size(c.res));
+		assert(len <= n);
+		rep(i, len, n - 1){
+			mint v = 0;
+			rep(j, 0, len - 1){
+				v += c.res[j] * a[i - 1 - j];
+			}
+			assert(v.x == a[i].x);
+		}
+		if(len){
+			// Feasibility is monotone in the order, by appending zero coefficients.
+			assert(!recurrence_exists(a, n, len - 1));
+		}
+	}
+}
+
+void berlekamp_massey(){
+	bm c;
+	c.push(0);
+	assert(c.res.empty());
+	c.push(-1);
+	equal(c.res, {0, 0});
+	c.push(0);
+	c.push(0);
+	equal(c.res, {0, 0});
+
+	poly a(6);
+	rep(i, 0, 728){
+		int t = i;
+		for(auto &v:a){
+			v = t % 3 - 1;
+			t /= 3;
+		}
+		check_recurrence(a);
+	}
+	rep(i, 0, 249){
+		const int n = 1 + int(rng() % 24);
+		a = sample(n);
+		check_recurrence(a);
+		const int len = 1 + int(rng() % n);
+		const poly res = sample(len);
+		rep(j, len, n - 1){
+			a[j] = 0;
+			rep(k, 0, len - 1){
+				a[j] += res[k] * a[j - 1 - k];
+			}
+		}
+		check_recurrence(a);
+	}
+
+	a.assign(64, 0);
+	a[1] = 1;
+	rep(i, 2, ssize(a) - 1){
+		a[i] = a[i - 1] + a[i - 2];
+	}
+	bm f;
+	rep(i, 0, 15){
+		f.push(a[i]);
+	}
+	equal(f.res, {1, 1});
+	poly Q{1};
+	for(mint v:f.res){
+		Q.pb(-v);
+	}
+	poly P(a.begin(), a.begin() + ssize(f.res));
+	P *= Q;
+	rep(i, 0, ssize(a) - 1){
+		assert(BostanMori(i, P, Q).x == a[i].x);
+	}
+}
+
 void limits(){
 	const int n = S / 2;
 	{
@@ -386,6 +497,20 @@ void limits(){
 		q[0] = 1, q[k] = -2;
 		assert(BostanMori(3 * i64(k) + 1, poly{0, 7}, q).x == 56);
 	}
+	{
+		bm c;
+		rep(i, 0, S - 1){
+			c.push(0);
+		}
+		assert(c.res.empty());
+		c.push(-1);
+		assert(ssize(c.res) == S + 1);
+		c.push(1);
+		assert(ssize(c.res) == S + 1 && c.res[0].x == mod - 1);
+		rep(i, 1, S){
+			assert(!c.res[i].x);
+		}
+	}
 	cout << "mint_poly upper limits passed\n";
 }
 }
@@ -420,5 +545,6 @@ int main(int argc, char **argv){
 	rational_2d();
 	shapes();
 	higher();
+	berlekamp_massey();
 	cout << "mint_poly checks passed\n";
 }
