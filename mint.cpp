@@ -1,18 +1,18 @@
-
 using u32 = uint32_t;
 using u64 = uint64_t;
-constexpr int mod = 998244353;
+const int mod = 998244353;
 struct mint{
 	u32 x;
-	
+
 	mint(): x(0){}
 	mint(int _x){
 		_x %= mod;
 		if(_x < 0) _x += mod;
-		x = _x;
+		x = u32(_x);
 	}
 
-	mint qpow(int y = mod - 2)const {
+	// y >= 0. The default exponent gives the inverse of a nonzero value.
+	mint qpow(int y = mod - 2)const{
 		assert(y >= 0);
 		mint t = *this, res = 1;
 		while(y){
@@ -32,25 +32,26 @@ struct mint{
 		return *this;
 	}
 	mint& operator *= (const mint &B){
-		x = u32((u64)x * B.x % mod);
+		x = u32(u64(x) * B.x % mod);
 		return *this;
 	}
+	// B.x != 0.
 	mint& operator /= (const mint &B){
 		return *this *= B.qpow();
 	}
 	friend mint operator + (mint A, const mint &B){
-		return mint(A) += B;
+		return A += B;
 	}
 	friend mint operator - (mint A, const mint &B){
-		return mint(A) -= B;
+		return A -= B;
 	}
 	friend mint operator * (mint A, const mint &B){
-		return mint(A) *= B;
+		return A *= B;
 	}
 	friend mint operator / (mint A, const mint &B){
-		return mint(A) /= B;
+		return A /= B;
 	}
-	mint operator - ()const {
+	mint operator - ()const{
 		return mint() - *this;
 	}
 
@@ -60,7 +61,7 @@ struct mint{
 	}
 };
 
-const int N = 1e6 + 5;
+const int N = 1'000'005;
 mint fac[N], ifac[N];
 
 auto INIT = [](){
@@ -75,6 +76,7 @@ auto INIT = [](){
 	return true;
 }();
 
+// 0 <= m < N. Returns 0 when n is outside [0, m].
 mint C(int m, int n){
-	return n < 0 || n > m? mint(): fac[m] * ifac[n] * ifac[m - n];
+	return (n < 0 || n > m ? 0 : fac[m] * ifac[n] * ifac[m - n]);
 }
